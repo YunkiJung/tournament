@@ -2,7 +2,15 @@ import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
-import Navbar from './layout/Navbar.js';
+import Navbar from './layout/Navbar';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import ActiveList from './pages/ActiveList';
+import PastList from './pages/PastList';
+import Create from './pages/Create';
+import Detail from './pages/Detail';
+import MyCarousel from './layout/Carousel';
 
 function App() {
   return (
@@ -10,12 +18,24 @@ function App() {
       <Navbar></Navbar>
 
       <Routes>
-        <Route path='/' element={<div>home page</div>}></Route>
-        <Route path='/login' element={<div>login page</div>}></Route>
-        <Route path='/register' element={<div>register page</div>}></Route>
-        <Route path='/activelist' element={<div>active tournaments page</div>}></Route>
-        <Route path='/pastlist' element={<div>past tournaments page</div>}></Route>
-        <Route path='/create' element={<div>create new tournament page</div>}></Route>
+        <Route path='/' element={ 
+          <>
+            <MyCarousel></MyCarousel>
+            <Home></Home>
+          </> 
+        }></Route>
+        <Route path='/home' element={ 
+          <>
+            <MyCarousel></MyCarousel>
+            <Home></Home>
+          </> 
+        }></Route>
+        <Route path='/login' element={ <Login></Login> }></Route>
+        <Route path='/register' element={ <Register></Register> }></Route>
+        <Route path='/activelist' element={ <ActiveList></ActiveList> }></Route>
+        <Route path='/pastlist' element={ <PastList></PastList> }></Route>
+        <Route path='/create' element={ <Create></Create> }></Route>
+        <Route path='/detail/:id' element={ <Detail></Detail> }></Route>
       </Routes>
     </>
   );
